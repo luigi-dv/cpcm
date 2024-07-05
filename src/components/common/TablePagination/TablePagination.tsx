@@ -13,6 +13,11 @@ export const TablePagination = ({
   totalRows,
   currentPage,
   onPageChange,
+}: {
+  rowsPerPage: number;
+  totalRows: number;
+  currentPage: number;
+  onPageChange: (page: number) => void;
 }) => {
   const totalPages = Math.ceil(totalRows / rowsPerPage);
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);

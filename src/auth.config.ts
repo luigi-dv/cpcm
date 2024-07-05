@@ -32,12 +32,12 @@ export default {
     jwt({ token, user }: { token: JWT; user: any }) {
       if (user) {
         // User is available during sign-in
-        token.id = user.id;
+        token.idToken = user.id;
       }
       return token;
     },
     session({ session, token }: { session: Session; token: JWT }) {
-      session.user.id = token.id as string;
+      session.user.id = token.idToken as string;
       return session;
     },
   },

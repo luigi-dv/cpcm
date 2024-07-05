@@ -140,7 +140,12 @@ const ClientsPage = async () => {
               </Table>
             </CardContent>
             <CardFooter>
-              <TablePagination />
+              <TablePagination
+                currentPage={1}
+                onPageChange={() => {}}
+                rowsPerPage={10}
+                totalRows={1}
+              />
             </CardFooter>
           </Card>
         </TabsContent>

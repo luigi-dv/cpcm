@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "email-dev": "email dev --dir ./src/emails",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -22,7 +23,15 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-tabs": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.1.2",
-    "@react-email/components": "0.0.21",
+    "@react-email/button": "0.0.15",
+    "@react-email/container": "0.0.12",
+    "@react-email/head": "0.0.8",
+    "@react-email/heading": "0.0.12",
+    "@react-email/html": "0.0.8",
+    "@react-email/link": "0.0.8",
+    "@react-email/render": "0.0.13",
+    "@react-email/text": "0.0.8",
+    "@react-email/components": "^0.0.21",
     "boring-avatars": "^1.10.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -31,7 +40,7 @@
     "next-auth": "^5.0.0-beta.19",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-email": "2.1.5",
+    "react-email": "2.1.2",
     "react-hook-form": "^7.52.1",
     "resend": "^3.4.0",
     "tailwind-merge": "^2.3.0",
@@ -50,5 +59,8 @@
     "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }

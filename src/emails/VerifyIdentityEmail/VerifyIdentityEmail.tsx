@@ -1,13 +1,11 @@
-import {
-  Html,
-  Head,
-  Body,
-  Button,
-  Text,
-  Section,
-  Heading,
-  Container,
-} from "@react-email/components";
+import { Head } from "@react-email/head";
+import { Body } from "@react-email/body";
+import { Button } from "@react-email/button";
+import { Text } from "@react-email/text";
+import { Section } from "@react-email/section";
+import { Heading } from "@react-email/heading";
+import { Container } from "@react-email/container";
+import { Html } from "@react-email/html";
 
 import * as React from "react";
 import { CSSProperties } from "react";
