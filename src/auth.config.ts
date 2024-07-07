@@ -31,15 +31,14 @@ export default {
     }),
   ],
   callbacks: {
-    signIn: async ({ user, account, email }) => {
-      if (user && user.email) {
-        const existingUser = await getUserByEmail(user.email);
+    async signIn({ profile }) {
+      if (process && profile?.email) {
+        const existingUser = await getUserByEmail(profile.email);
         if (existingUser) {
           return true;
         }
-      } else {
-        return "/auth/error?error=Email not found.";
       }
+      return false;
     },
     jwt({ token, user }: { token: JWT; user: any }) {
       if (user) {

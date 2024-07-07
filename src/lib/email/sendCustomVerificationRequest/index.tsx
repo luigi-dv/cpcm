@@ -13,7 +13,7 @@ export async function sendCustomVerificationRequest(params: {
   identifier: string;
   url: string;
   provider: EmailConfig;
-  companyName: string;
+  companyName?: string;
 }) {
   const { identifier: to, url, companyName } = params;
   const { host } = new URL(url);
