@@ -2,8 +2,23 @@
 
 import { signIn } from "@/auth";
 
-export async function signInAction(email: string) {
-  const formData = new FormData();
-  formData.append("email", email);
+/**
+ * Sign in with email.
+ */
+export async function signInAction(formData: FormData) {
   await signIn("resend", formData);
+}
+
+/**
+ * Sign in with Google.
+ */
+export async function signInWithGoogleAction() {
+  await signIn("google", { redirectTo: "/" });
+}
+
+/**
+ * Sign in with LinkedIn.
+ */
+export async function signInWithLinkedInAction() {
+  await signIn("linkedin", { redirectTo: "/" });
 }

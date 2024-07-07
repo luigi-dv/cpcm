@@ -1,4 +1,4 @@
-import GitHub from "next-auth/providers/github";
+import LinkedIn from "next-auth/providers/linkedin";
 import Google from "next-auth/providers/google";
 import Resend from "@auth/core/providers/resend";
 
@@ -11,24 +11,36 @@ import {
   AUTH_SIGN_IN_ROUTE,
   AUTH_VERIFY_REQUEST_ROUTE,
 } from "@/routes";
+import { getUserByEmail } from "@/services/users";
 
 export default {
   providers: [
-    GitHub,
     Google,
+    LinkedIn,
     Resend({
       server: process.env.AUTH_RESEND_SERVER,
-      from: "no-reply@ldvloper.com",
+      from: process.env.EMAIL_FROM,
       sendVerificationRequest({ identifier, url, provider, theme }) {
         sendCustomVerificationRequest({
           identifier,
           url,
           provider,
+          companyName: process.env.NEXT_PUBLIC_COMPANY_NAME,
         });
       },
     }),
   ],
   callbacks: {
+    signIn: async ({ user, account, email }) => {
+      if (user && user.email) {
+        const existingUser = await getUserByEmail(user.email);
+        if (existingUser) {
+          return true;
+        }
+      } else {
+        return "/auth/error?error=Email not found.";
+      }
+    },
     jwt({ token, user }: { token: JWT; user: any }) {
       if (user) {
         // User is available during sign-in

@@ -1,25 +1,35 @@
-"use client";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
-import { MailboxIcon } from "@/lib/icons/MailboxIcon";
+import { Send } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const VerifyRequest = () => {
   return (
-    <div className="flex min-h-[100dvh] items-center justify-center px-4">
-      <div className="mx-auto w-full max-w-md space-y-6 rounded-lg p-6 shadow-lg">
-        <div className="flex flex-col items-center space-y-4">
-          <MailboxIcon className="h-12 w-12 text-gray-700" />
-          <div className="space-y-2 text-center">
-            <h1 className="text-2xl font-bold text-gray-700">
-              Verify Your Email
-            </h1>
-            <p className="text-gray-500 dark:text-gray-500">
-              We&apos;ve sent a magic link email to your inbox. Please check
-              your email and click the link to login your account.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Card className="w-[350px]">
+      <CardHeader>
+        <CardTitle>Sign in to your account</CardTitle>
+        <CardDescription>With a single use Magic Link</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <p className="text-sm text-gray-500">
+          We&apos;ve sent a Magic Link email to your inbox. Please check your
+          email and click the link to login your account.
+        </p>
+      </CardContent>
+      <CardFooter>
+        <Button className="w-full">
+          <Send className="mr-2 h-4 w-4" /> Resend Magic Link
+        </Button>
+      </CardFooter>
+    </Card>
   );
 };
+
 export default VerifyRequest;
