@@ -1,3 +1,6 @@
+import React from 'react';
+
+import { TablePaginationProps } from '@/types/components/common';
 import {
   Pagination,
   PaginationContent,
@@ -6,19 +9,18 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination";
+} from '@/components/ui/pagination';
 
+/**
+ * TablePagination component
+ * @description A pagination component for tables
+ */
 export const TablePagination = ({
   rowsPerPage,
   totalRows,
   currentPage,
   onPageChange,
-}: {
-  rowsPerPage: number;
-  totalRows: number;
-  currentPage: number;
-  onPageChange: (page: number) => void;
-}) => {
+}: TablePaginationProps) => {
   const totalPages = Math.ceil(totalRows / rowsPerPage);
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
@@ -26,24 +28,24 @@ export const TablePagination = ({
     <Pagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious href="#" />
+          <PaginationPrevious href='#' />
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#">1</PaginationLink>
+          <PaginationLink href='#'>1</PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#" isActive>
+          <PaginationLink href='#' isActive>
             2
           </PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#">3</PaginationLink>
+          <PaginationLink href='#'>3</PaginationLink>
         </PaginationItem>
         <PaginationItem>
           <PaginationEllipsis />
         </PaginationItem>
         <PaginationItem>
-          <PaginationNext href="#" />
+          <PaginationNext href='#' />
         </PaginationItem>
       </PaginationContent>
     </Pagination>

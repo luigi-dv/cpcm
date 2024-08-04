@@ -1,1 +1,1 @@
-export { MailboxIcon } from "./MailboxIcon";
+export { MailboxIcon } from './MailboxIcon';

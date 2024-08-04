@@ -1,0 +1,92 @@
+{
+  "authentication": {
+    "signIn": "Iniciar Sesión",
+    "signUp": "Registrarse",
+    "signOut": "Cerrar Sesión",
+    "forgotPassword": "Olvidé mi Contraseña",
+    "resetPassword": "Restablecer Contraseña",
+    "changePassword": "Cambiar Contraseña",
+    "changeEmail": "Cambiar Correo Electrónico"
+  },
+  "settings": {
+    "settings": "Configuración",
+    "profile": "Perfil",
+    "account": "Cuenta",
+    "security": "Seguridad",
+    "notifications": "Notificaciones",
+    "language": "Idioma",
+    "darkMode": "Modo Oscuro",
+    "lightMode": "Modo Claro",
+    "theme": "Tema",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "help": "Ayuda",
+    "feedback": "Comentarios",
+    "about": "Acerca de",
+    "signOut": "Cerrar Sesión"
+  },
+  "search": {
+    "search": "Buscar",
+    "searchPlaceholder": "Escriba un comando o término de búsqueda",
+    "searchResults": "Resultados de Búsqueda",
+    "searchResultsFor": "Resultados de Búsqueda para",
+    "noResultsFound": "No se Encontraron Resultados",
+    "noResultsFoundFor": "No se Encontraron Resultados para",
+    "searchSuggestions": {
+      "searchSuggestions": "Sugerencias de Búsqueda",
+      "searchSuggestion": "Sugerencia de Búsqueda",
+      "searchSuggestionFor": "Sugerencia de Búsqueda para",
+      "noSearchSuggestionsFound": "No se Encontraron Sugerencias de Búsqueda",
+      "noSearchSuggestionsFoundFor": "No se Encontraron Sugerencias de Búsqueda para"
+    },
+    "filters": {
+      "filters": "Filtros",
+      "filter": "Filtro",
+      "filterBy": "Filtrar por",
+      "filterFor": "Filtro para",
+      "noFiltersFound": "No se Encontraron Filtros",
+      "noFiltersFoundFor": "No se Encontraron Filtros para"
+    }
+  },
+  "routes": {
+    "home": "Inicio",
+    "contacts": "Contactos",
+    "clients": "Clientes",
+    "prospects": "Prospectos",
+    "products": "Productos",
+    "dashboard": "Dashboard",
+    "profile": "Perfil",
+    "account": "Cuenta",
+    "security": "Seguridad",
+    "notifications": "Notificaciones",
+    "language": "Idioma",
+    "darkMode": "Modo Oscuro",
+    "lightMode": "Modo Claro",
+    "theme": "Tema",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "help": "Ayuda",
+    "feedback": "Comentarios",
+    "about": "Acerca de"
+  },
+  "pages": {
+    "contacts": {
+      "title": "Contactos",
+      "description": "Administre su lista de Contactos",
+      "contact": "Contacto",
+      "noContactsFound": "No se Encontraron Contactos",
+      "noContactsFoundDescription": "Parece que aún no tienes ningún contacto. ¿Por qué no agregar uno?",
+      "noContactsFoundFor": "No se Encontraron Contactos para",
+      "addContact": "Agregar Contacto",
+      "editContact": "Editar Contacto",
+      "deleteContact": "Eliminar Contacto",
+      "CRUD": {
+        "create": "Agregar Contacto",
+        "read": "Ver Contacto",
+        "update": "Actualizar Contacto",
+        "delete": "Eliminar Contacto",
+        "export": "Exportar Contactos"
+      }
+    }
+  }
+}

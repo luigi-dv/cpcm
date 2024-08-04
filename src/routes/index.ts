@@ -1,3 +1,3 @@
-export const HOME_ROUTE = "/";
-export * from "./auth";
-export * from "./private";
+export const HOME_ROUTE = '/';
+export * from './auth';
+export * from './private';

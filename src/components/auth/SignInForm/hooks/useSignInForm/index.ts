@@ -1,19 +1,23 @@
-import React, { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState } from 'react';
 
+/**
+ * SignInForm hook
+ * @description A hook for the sign-in form
+ */
 export const useSignInForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
   const [isLinkedInLoading, setIsLinkedInLoading] = useState(false);
-  const [email, setEmail] = useState("");
-  const [validationMessage, setValidationMessage] = useState("");
+  const [email, setEmail] = useState('');
+  const [validationMessage, setValidationMessage] = useState('');
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
-    if (!e.target.value.includes("@")) {
-      setValidationMessage("Please enter a valid email address");
+    if (!e.target.value.includes('@')) {
+      setValidationMessage('Please enter a valid email address');
       return;
     }
-    setValidationMessage("");
+    setValidationMessage('');
   };
 
   const changeLoadingState = (loading: boolean) => {

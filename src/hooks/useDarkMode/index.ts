@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 /**
  * Hook to detect if the user prefers dark mode
@@ -8,7 +8,7 @@ export const useDarkMode = (): boolean => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
     // Initial check
     setIsDarkMode(mediaQuery.matches);
@@ -18,11 +18,11 @@ export const useDarkMode = (): boolean => {
       setIsDarkMode(e.matches);
     };
 
-    mediaQuery.addEventListener("change", handleChange);
+    mediaQuery.addEventListener('change', handleChange);
 
     // Cleanup event listener on unmount
     return () => {
-      mediaQuery.removeEventListener("change", handleChange);
+      mediaQuery.removeEventListener('change', handleChange);
     };
   }, []);
 

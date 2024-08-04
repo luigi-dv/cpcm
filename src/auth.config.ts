@@ -1,17 +1,12 @@
-import LinkedIn from "next-auth/providers/linkedin";
-import Google from "next-auth/providers/google";
-import Resend from "@auth/core/providers/resend";
+import { JWT } from 'next-auth/jwt';
+import Google from 'next-auth/providers/google';
+import Resend from 'next-auth/providers/resend';
+import { NextAuthConfig, Session } from 'next-auth';
+import LinkedIn from 'next-auth/providers/linkedin';
+import { AUTH_ERROR_ROUTE, AUTH_SIGN_IN_ROUTE, AUTH_VERIFY_REQUEST_ROUTE } from '@/routes';
 
-import { NextAuthConfig, Session } from "next-auth";
-import { JWT } from "next-auth/jwt";
-import { sendCustomVerificationRequest } from "@/lib/email/sendCustomVerificationRequest";
-
-import {
-  AUTH_ERROR_ROUTE,
-  AUTH_SIGN_IN_ROUTE,
-  AUTH_VERIFY_REQUEST_ROUTE,
-} from "@/routes";
-import { getUserByEmail } from "@/services/users";
+import { getUserByEmail } from '@/services/user';
+import { sendCustomVerificationRequest } from '@/lib/email/sendCustomVerificationRequest';
 
 export default {
   providers: [
@@ -31,7 +26,7 @@ export default {
     }),
   ],
   callbacks: {
-    async signIn({ profile }) {
+    /*async signIn({ profile }) {
       if (process && profile?.email) {
         const existingUser = await getUserByEmail(profile.email);
         if (existingUser) {
@@ -39,7 +34,7 @@ export default {
         }
       }
       return false;
-    },
+    },*/
     jwt({ token, user }: { token: JWT; user: any }) {
       if (user) {
         // User is available during sign-in

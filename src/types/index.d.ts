@@ -1,13 +1,13 @@
-declare module "next-auth" {
+declare module 'next-auth' {
   /**
    * The shape of the user object returned in the OAuth providers' `profile` callback,
    * or the second parameter of the `session` callback, when using a database.
    */
   interface User {
-    id: string;
-    name: string;
     email: string;
+    id: string;
     image: string;
+    name: string;
   }
   /**
    * The shape of the account object returned in the OAuth providers' `account` callback,
@@ -26,9 +26,9 @@ declare module "next-auth" {
 }
 
 // The `JWT` interface can be found in the `next-auth/jwt` submodule
-import { JWT } from "next-auth/jwt";
+import { JWT } from 'next-auth/jwt';
 
-declare module "next-auth/jwt" {
+declare module 'next-auth/jwt' {
   /** Returned by the `jwt` callback and `auth`, when using JWT sessions */
   interface JWT {
     /** OpenID ID Token */
@@ -36,7 +36,7 @@ declare module "next-auth/jwt" {
   }
 }
 
-declare module "*.json" {
+declare module '*.json' {
   const value: any;
   export default value;
 }
