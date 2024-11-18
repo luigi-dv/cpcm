@@ -1,0 +1,36 @@
+# Top-most EditorConfig file
+root = true
+
+# Default settings for all files
+[*]
+# Use 4 spaces per indentation level
+indent_style = space
+indent_size = 4
+# Set the maximum line length
+max_line_length = 100
+# Ensure Unix-style line endings
+end_of_line = lf
+# Trim any trailing whitespace
+trim_trailing_whitespace = true
+# Insert a newline at the end of the file
+insert_final_newline = true
+
+# Settings for JavaScript, TypeScript, and JSON files
+[*.{js,jsx,ts,tsx,json}]
+# Use 2 spaces per indentation level for these file types
+indent_size = 2
+
+# Settings for Markdown files
+[*.md]
+# Use 2 spaces per indentation level for Markdown files
+indent_size = 2
+
+# Settings for HTML and XML files
+[*.{html,xml}]
+# Use 2 spaces per indentation level for HTML and XML files
+indent_size = 2
+
+# Settings for CSS and SCSS files
+[*.{css,scss}]
+# Use 2 spaces per indentation level for CSS and SCSS files
+indent_size = 2

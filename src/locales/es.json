@@ -1,0 +1,152 @@
+{
+  "authentication": {
+    "signIn": "Iniciar Sesión",
+    "signUp": "Registrarse",
+    "signOut": "Cerrar Sesión",
+    "forgotPassword": "Olvidé mi Contraseña",
+    "resetPassword": "Restablecer Contraseña",
+    "changePassword": "Cambiar Contraseña",
+    "changeEmail": "Cambiar Correo Electrónico"
+  },
+  "settings": {
+    "settings": "Configuración",
+    "profile": "Perfil",
+    "account": "Cuenta",
+    "security": "Seguridad",
+    "notifications": "Notificaciones",
+    "language": "Idioma",
+    "darkMode": "Modo Oscuro",
+    "lightMode": "Modo Claro",
+    "theme": "Tema",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "help": "Ayuda",
+    "feedback": "Comentarios",
+    "about": "Acerca de",
+    "signOut": "Cerrar Sesión"
+  },
+  "search": {
+    "search": "Buscar",
+    "searchPlaceholder": "Escriba un comando o término de búsqueda",
+    "searchResults": "Resultados de Búsqueda",
+    "searchResultsFor": "Resultados de Búsqueda para",
+    "noResultsFound": "No se Encontraron Resultados",
+    "noResultsFoundFor": "No se Encontraron Resultados para",
+    "searchSuggestions": {
+      "searchSuggestions": "Sugerencias de Búsqueda",
+      "searchSuggestion": "Sugerencia de Búsqueda",
+      "searchSuggestionFor": "Sugerencia de Búsqueda para",
+      "noSearchSuggestionsFound": "No se Encontraron Sugerencias de Búsqueda",
+      "noSearchSuggestionsFoundFor": "No se Encontraron Sugerencias de Búsqueda para"
+    },
+    "filters": {
+      "filters": "Filtros",
+      "filter": "Filtro",
+      "filterBy": "Filtrar por",
+      "filterFor": "Filtro para",
+      "noFiltersFound": "No se Encontraron Filtros",
+      "noFiltersFoundFor": "No se Encontraron Filtros para"
+    }
+  },
+  "routes": {
+    "home": "Inicio",
+    "leads": "Contactos",
+    "clients": "Clientes",
+    "prospects": "Prospectos",
+    "products": "Productos",
+    "dashboard": "Dashboard",
+    "profile": "Perfil",
+    "account": "Cuenta",
+    "security": "Seguridad",
+    "notifications": "Notificaciones",
+    "language": "Idioma",
+    "darkMode": "Modo Oscuro",
+    "lightMode": "Modo Claro",
+    "theme": "Tema",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "help": "Ayuda",
+    "feedback": "Comentarios",
+    "about": "Acerca de"
+  },
+  "pages": {
+    "leads": {
+      "title": "Contactos",
+      "description": "Administre su lista de Contactos",
+      "contact": "Contacto",
+      "noContactsFound": "No se Encontraron Contactos",
+      "noContactsFoundDescription": "Parece que aún no tienes ningún contacto. ¿Por qué no agregar uno?",
+      "noContactsFoundFor": "No se Encontraron Contactos para",
+      "addContact": "Agregar Contacto",
+      "editContact": "Editar Contacto",
+      "deleteContact": "Eliminar Contacto",
+      "CRUD": {
+        "create": "Agregar Contacto",
+        "read": "Ver Contacto",
+        "update": "Actualizar Contacto",
+        "delete": "Eliminar Contacto",
+        "export": "Exportar Contactos"
+      }
+    },
+    "settings": {
+      "title": "Configuración",
+      "description": "Administre su configuración de cuenta y sus preferencias de email.",
+      "profile": {
+        "title": "Perfil",
+        "description": "Administre su información de perfil"
+      },
+      "account": {
+        "title": "Cuenta",
+        "description": "Administre su información de cuenta"
+      },
+      "security": {
+        "title": "Seguridad",
+        "description": "Administre su configuración de seguridad"
+      },
+      "notifications": {
+        "title": "Notificaciones",
+        "description": "Administre su configuración de notificaciones"
+      },
+      "language": {
+        "title": "Idioma",
+        "description": "Administre su configuración de idioma"
+      },
+      "darkMode": {
+        "title": "Modo Oscuro",
+        "description": "Administre su configuración de modo oscuro"
+      },
+      "lightMode": {
+        "title": "Modo Claro",
+        "description": "Administre su configuración de modo claro"
+      },
+      "theme": {
+        "title": "Tema",
+        "description": "Administre su configuración de tema"
+      },
+      "privacy": {
+        "title": "Privacidad",
+        "description": "Administre su configuración de privacidad"
+      },
+      "terms": {
+        "title": "Términos",
+        "description": "Administre su configuración de términos"
+      },
+      "help": {
+        "title": "Ayuda",
+        "description": "Administre su configuración de ayuda"
+      },
+      "feedback": {
+        "title": "Comentarios",
+        "description": "Administre su configuración de comentarios"
+      },
+      "about": {
+        "title": "Acerca de",
+        "description": "Administre su configuración de acerca de"
+      },
+      "signOut": {
+        "title": "Cerrar Sesión",
+        "description": "Administre su configuración de cerrar sesión"
+      }
+    }
+  }
+}

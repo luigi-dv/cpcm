@@ -1,1 +1,1 @@
-export { NavigationCommandDialog } from "./NavigationCommandDialog";
+export { NavigationCommandDialog } from './NavigationCommandDialog';

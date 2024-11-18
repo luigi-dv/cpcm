@@ -1,7 +1,8 @@
-"use server";
+'use server';
 
-import React from "react";
-import { Resend } from "resend";
+import React from 'react';
+
+import { Resend } from 'resend';
 
 // Creates an instance of Resend using the API KEY
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -17,7 +18,7 @@ interface Email {
 
 export const sendEmail = async (payload: Email) => {
   const { error } = await resend.emails.send({
-    from: "No Reply <no-reply@ldvloper.com>", // Defines the sender's address.
+    from: 'No Reply <no-reply@ldvloper.com>', // Defines the sender's address.
     ...payload, // Expands the contents of 'payload' to include 'to', 'subject', and 'react'.
   });
 

@@ -1,0 +1,144 @@
+{
+  "authentication": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signOut": "Sign Out",
+    "forgotPassword": "Forgot Password",
+    "resetPassword": "Reset Password",
+    "changePassword": "Change Password",
+    "changeEmail": "Change Email"
+  },
+  "settings": {
+    "settings": "Settings",
+    "profile": "Profile",
+    "account": "Account",
+    "security": "Security",
+    "notifications": "Notifications",
+    "language": "Language",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "theme": "Theme",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "help": "Help",
+    "feedback": "Feedback",
+    "about": "About",
+    "signOut": "Sign Out"
+  },
+  "search": {
+    "search": "Search",
+    "searchPlaceholder": "Type a command or search term",
+    "searchResults": "Search Results",
+    "searchResultsFor": "Search Results for",
+    "noResultsFound": "No Results Found",
+    "noResultsFoundFor": "No Results Found for",
+    "searchSuggestions": {
+      "searchSuggestions": "Search Suggestions",
+      "searchSuggestion": "Search Suggestion",
+      "searchSuggestionFor": "Search Suggestion for",
+      "noSearchSuggestionsFound": "No Search Suggestions Found",
+      "noSearchSuggestionsFoundFor": "No Search Suggestions Found for"
+    },
+    "filters": {
+      "filters": "Filters",
+      "filter": "Filter",
+      "filterBy": "Filter by",
+      "filterFor": "Filter for",
+      "noFiltersFound": "No Filters Found",
+      "noFiltersFoundFor": "No Filters Found for"
+    }
+  },
+  "routes": {
+    "home": "Home",
+    "leads": "Leads",
+    "clients": "Clients",
+    "prospects": "Prospects",
+    "products": "Products",
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "account": "Account",
+    "security": "Security",
+    "notifications": "Notifications",
+    "language": "Language",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "theme": "Theme",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "help": "Help",
+    "feedback": "Feedback",
+    "about": "About",
+    "signOut": "Sign Out"
+  },
+  "pages": {
+    "leads": {
+      "title": "Leads",
+      "description": "Manage your Leads list",
+      "contact": "Lead",
+      "noContactsFound": "No Leads Found",
+      "noContactsFoundDescription": "Seems like you don't have any Leads  yet. Add a new contact to get started.",
+      "noContactsFoundFor": "No Leads Found for",
+      "CRUD": {
+        "create": "Add Lead",
+        "read": "View Lead",
+        "update": "Edit Lead",
+        "delete": "Delete Lead",
+        "export": "Export Leads"
+      }
+    },
+    "settings": {
+      "title": "Settings",
+      "description": "Manage your account settings and set email preferences.",
+      "profile": {
+        "title": "Profile",
+        "description": "Manage your Profile settings",
+        "update": "Update Profile"
+      },
+      "account": {
+        "title": "Account",
+        "description": "Manage your Account settings",
+        "update": "Update Account"
+      },
+      "security": {
+        "title": "Security",
+        "description": "Manage your Security settings",
+        "update": "Update Security"
+      },
+      "notifications": {
+        "title": "Notifications",
+        "description": "Manage your Notification settings",
+        "update": "Update Notifications"
+      },
+      "language": {
+        "title": "Language",
+        "description": "Manage your Language settings",
+        "update": "Update Language"
+      },
+      "darkMode": {
+        "title": "Dark Mode",
+        "description": "Manage your Dark Mode settings",
+        "update": "Update Dark Mode"
+      },
+      "lightMode": {
+        "title": "Light Mode",
+        "description": "Manage your Light Mode settings",
+        "update": "Update Light Mode"
+      },
+      "theme": {
+        "title": "Theme",
+        "description": "Manage your Theme settings",
+        "update": "Update Theme"
+      },
+      "privacy": {
+        "title": "Privacy",
+        "description": "Manage your Privacy settings",
+        "update": "Update Privacy"
+      },
+      "terms": {
+        "title": "Terms",
+        "description": "Manage your Terms settings",
+        "update": "Update Terms"
+      }
+    }
+  }
+}

@@ -1,1 +1,1 @@
-export { NavigationTooltips } from "./NavigationTooltips";
+export { NavigationTooltips } from './NavigationTooltips';
