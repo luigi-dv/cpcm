@@ -2,10 +2,12 @@ import React from 'react';
 
 import Link from 'next/link';
 import Avatar from 'boring-avatars';
-import { auth, signOut } from '@/auth';
 import { SETTINGS_ROUTE } from '@/routes';
+import { redirect } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
+import { createClient } from '@/lib/supabase/server';
+import { signOut } from '@/lib/supabase/auth/common';
 import { NavigationUserDropdownProps } from '@/types/components/common';
 import {
   DropdownMenu,
@@ -14,22 +16,26 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-
 /**
  * NavigationUserDropdown component
  * @description A dropdown menu for user navigation in the navigation bar
  */
 export const NavigationUserDropdown = async (props: NavigationUserDropdownProps) => {
   const { dict } = props;
-  const session = await auth();
-  if (!session) return <></>;
+  const supabase = await createClient();
+
+  const { data, error } = await supabase.auth.getUser();
+  if (error || !data?.user) {
+    redirect('/auth/login');
+  }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant='outline' size='icon' className='overflow-hidden rounded-full'>
           <Avatar
             size={40}
-            name={session.user?.name ?? 'Unknown'}
+            name={data?.user.email ?? 'Unknown'}
             variant='marble'
             colors={['#FF6B6B', '#4ECDC4', '#FFCE54', '#AC92EB', '#A0D568']}
           />

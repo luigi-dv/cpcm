@@ -1,10 +1,8 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 
 import React from 'react';
 
-import { auth } from '@/auth';
 import { Inter } from 'next/font/google';
-import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 
 import { Toaster } from '@/components/ui/sonner';
@@ -18,28 +16,33 @@ export const metadata: Metadata = {
   description: 'Client Prospecting Customer Management for AVClients',
 };
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export default async function RootLayout({
   children,
-  params: { lang },
+  params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }>) {
-  const session = await auth();
+  const { lang } = await params;
+
   return (
     <html lang={lang}>
       <body className={inter.className}>
-        <SessionProvider session={session}>
-          <ThemeProvider
-            attribute='class'
-            defaultTheme='system'
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
-        </SessionProvider>
-        <Toaster />
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+        <Toaster position='top-right' />
       </body>
     </html>
   );

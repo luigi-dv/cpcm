@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 
 import { z } from 'zod';
 import { toast } from 'sonner';
-import { useSession } from 'next-auth/react';
+import { User } from '@supabase/auth-helpers-nextjs';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons';
 import accountFormSchema from '@/schemas/forms/accountFormSchema';
@@ -39,13 +39,11 @@ const languages = [
 
 type AccountFormValues = z.infer<typeof accountFormSchema>;
 
-export const AccountForm = () => {
-  const session = useSession();
-
+export const AccountForm = ({ user }: { user: User }) => {
   // This can come from your database or API.
   const defaultValues: Partial<AccountFormValues> = {
-    email: session.data?.user?.email ?? undefined,
-    name: session.data?.user?.name ?? undefined,
+    email: user?.email ?? undefined,
+    name: (user?.user_metadata?.full_name || user?.user_metadata?.display_name) ?? undefined,
   };
 
   const form = useForm<AccountFormValues>({
@@ -149,7 +147,7 @@ export const AccountForm = () => {
                 </PopoverContent>
               </Popover>
               <FormDescription>
-                This is the language that will be used in the dashboard.
+                This is the language that will be used in the application.
               </FormDescription>
               <FormMessage />
             </FormItem>

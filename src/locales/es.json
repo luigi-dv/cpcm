@@ -50,7 +50,7 @@
   },
   "routes": {
     "home": "Inicio",
-    "contacts": "Contactos",
+    "leads": "Contactos",
     "clients": "Clientes",
     "prospects": "Prospectos",
     "products": "Productos",
@@ -70,7 +70,7 @@
     "about": "Acerca de"
   },
   "pages": {
-    "contacts": {
+    "leads": {
       "title": "Contactos",
       "description": "Administre su lista de Contactos",
       "contact": "Contacto",
@@ -86,6 +86,66 @@
         "update": "Actualizar Contacto",
         "delete": "Eliminar Contacto",
         "export": "Exportar Contactos"
+      }
+    },
+    "settings": {
+      "title": "Configuración",
+      "description": "Administre su configuración de cuenta y sus preferencias de email.",
+      "profile": {
+        "title": "Perfil",
+        "description": "Administre su información de perfil"
+      },
+      "account": {
+        "title": "Cuenta",
+        "description": "Administre su información de cuenta"
+      },
+      "security": {
+        "title": "Seguridad",
+        "description": "Administre su configuración de seguridad"
+      },
+      "notifications": {
+        "title": "Notificaciones",
+        "description": "Administre su configuración de notificaciones"
+      },
+      "language": {
+        "title": "Idioma",
+        "description": "Administre su configuración de idioma"
+      },
+      "darkMode": {
+        "title": "Modo Oscuro",
+        "description": "Administre su configuración de modo oscuro"
+      },
+      "lightMode": {
+        "title": "Modo Claro",
+        "description": "Administre su configuración de modo claro"
+      },
+      "theme": {
+        "title": "Tema",
+        "description": "Administre su configuración de tema"
+      },
+      "privacy": {
+        "title": "Privacidad",
+        "description": "Administre su configuración de privacidad"
+      },
+      "terms": {
+        "title": "Términos",
+        "description": "Administre su configuración de términos"
+      },
+      "help": {
+        "title": "Ayuda",
+        "description": "Administre su configuración de ayuda"
+      },
+      "feedback": {
+        "title": "Comentarios",
+        "description": "Administre su configuración de comentarios"
+      },
+      "about": {
+        "title": "Acerca de",
+        "description": "Administre su configuración de acerca de"
+      },
+      "signOut": {
+        "title": "Cerrar Sesión",
+        "description": "Administre su configuración de cerrar sesión"
       }
     }
   }

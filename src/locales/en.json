@@ -50,7 +50,7 @@
   },
   "routes": {
     "home": "Home",
-    "contacts": "Contacts",
+    "leads": "Leads",
     "clients": "Clients",
     "prospects": "Prospects",
     "products": "Products",
@@ -71,19 +71,73 @@
     "signOut": "Sign Out"
   },
   "pages": {
-    "contacts": {
-      "title": "Contacts",
-      "description": "Manage your Contact list",
-      "contact": "Contact",
-      "noContactsFound": "No Contacts Found",
-      "noContactsFoundDescription": "Seems like you don't have any contacts yet. Add a new contact to get started.",
-      "noContactsFoundFor": "No Contacts Found for",
+    "leads": {
+      "title": "Leads",
+      "description": "Manage your Leads list",
+      "contact": "Lead",
+      "noContactsFound": "No Leads Found",
+      "noContactsFoundDescription": "Seems like you don't have any Leads  yet. Add a new contact to get started.",
+      "noContactsFoundFor": "No Leads Found for",
       "CRUD": {
-        "create": "Add Contact",
-        "read": "View Contact",
-        "update": "Edit Contact",
-        "delete": "Delete Contact",
-        "export": "Export Contacts"
+        "create": "Add Lead",
+        "read": "View Lead",
+        "update": "Edit Lead",
+        "delete": "Delete Lead",
+        "export": "Export Leads"
+      }
+    },
+    "settings": {
+      "title": "Settings",
+      "description": "Manage your account settings and set email preferences.",
+      "profile": {
+        "title": "Profile",
+        "description": "Manage your Profile settings",
+        "update": "Update Profile"
+      },
+      "account": {
+        "title": "Account",
+        "description": "Manage your Account settings",
+        "update": "Update Account"
+      },
+      "security": {
+        "title": "Security",
+        "description": "Manage your Security settings",
+        "update": "Update Security"
+      },
+      "notifications": {
+        "title": "Notifications",
+        "description": "Manage your Notification settings",
+        "update": "Update Notifications"
+      },
+      "language": {
+        "title": "Language",
+        "description": "Manage your Language settings",
+        "update": "Update Language"
+      },
+      "darkMode": {
+        "title": "Dark Mode",
+        "description": "Manage your Dark Mode settings",
+        "update": "Update Dark Mode"
+      },
+      "lightMode": {
+        "title": "Light Mode",
+        "description": "Manage your Light Mode settings",
+        "update": "Update Light Mode"
+      },
+      "theme": {
+        "title": "Theme",
+        "description": "Manage your Theme settings",
+        "update": "Update Theme"
+      },
+      "privacy": {
+        "title": "Privacy",
+        "description": "Manage your Privacy settings",
+        "update": "Update Privacy"
+      },
+      "terms": {
+        "title": "Terms",
+        "description": "Manage your Terms settings",
+        "update": "Update Terms"
       }
     }
   }

@@ -3,18 +3,13 @@
 import React from 'react';
 
 import Link from 'next/link';
-import { Handshake, Home, Hospital, Package, Package2, PanelLeft, Users2 } from 'lucide-react';
-import {
-  CLIENTS_ROUTE,
-  CONTACTS_ROUTE,
-  DASHBOARD_ROUTE,
-  PRODUCTS_ROUTE,
-  PROSPECTS_ROUTE,
-} from '@/routes';
+import { DASHBOARD_ROUTE, LEADS_ROUTE } from '@/routes';
+import { Home, Package2, PanelLeft, Users2 } from 'lucide-react';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 import { Button } from '@/components/ui/button';
 import { NavigationSheetProps } from '@/types/components/common';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 
 /**
  * Navigation sheet component
@@ -32,46 +27,37 @@ export const NavigationSheet = (props: NavigationSheetProps) => {
         </Button>
       </SheetTrigger>
       <SheetContent side='left' className='sm:max-w-xs'>
+        <VisuallyHidden>
+          <SheetTitle>Navigation</SheetTitle>
+        </VisuallyHidden>
         <nav className='grid gap-6 text-lg font-medium'>
-          <Link
-            href={DASHBOARD_ROUTE}
-            className='group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base'
-          >
-            <Package2 className='h-5 w-5 transition-all group-hover:scale-110' />
-            <span className='sr-only'>{process.env.NEXT_PUBLIC_COMPANY_NAME}</span>
-          </Link>
-          <Link
-            href={DASHBOARD_ROUTE}
-            className='flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground'
-          >
-            <Home className='h-5 w-5' />
-            {dict.routes.dashboard}
-          </Link>
-          <Link
-            href={PROSPECTS_ROUTE}
-            className='flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground'
-          >
-            <Handshake className='h-5 w-5' />
-            {dict.routes.prospects}
-          </Link>
-          <Link href={PRODUCTS_ROUTE} className='flex items-center gap-4 px-2.5 text-foreground'>
-            <Package className='h-5 w-5' />
-            {dict.routes.products}
-          </Link>
-          <Link
-            href={CONTACTS_ROUTE}
-            className='flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground'
-          >
-            <Hospital className='h-5 w-5' />
-            {dict.routes.contacts}
-          </Link>
-          <Link
-            href={CLIENTS_ROUTE}
-            className='flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground'
-          >
-            <Users2 className='h-5 w-5' />
-            {dict.routes.clients}
-          </Link>
+          <SheetClose asChild>
+            <Link
+              href={DASHBOARD_ROUTE}
+              className='group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base'
+            >
+              <Package2 className='h-5 w-5 transition-all group-hover:scale-110' />
+              <span className='sr-only'>{process.env.NEXT_PUBLIC_COMPANY_NAME}</span>
+            </Link>
+          </SheetClose>
+          <SheetClose asChild>
+            <Link
+              href={DASHBOARD_ROUTE}
+              className='flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground'
+            >
+              <Home className='h-5 w-5' />
+              {dict.routes.dashboard}
+            </Link>
+          </SheetClose>
+          <SheetClose asChild>
+            <Link
+              href={LEADS_ROUTE}
+              className='flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground'
+            >
+              <Users2 className='h-5 w-5' />
+              {dict.routes.leads}
+            </Link>
+          </SheetClose>
         </nav>
       </SheetContent>
     </Sheet>

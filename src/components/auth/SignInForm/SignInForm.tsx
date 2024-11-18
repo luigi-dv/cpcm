@@ -3,17 +3,16 @@
 import React from 'react';
 
 import { LoaderCircle } from 'lucide-react';
-import {
-  signInAction,
-  signInWithGoogleAction,
-  signInWithLinkedInAction,
-} from '@/actions/authActions';
+import { useRouter } from 'next/navigation';
 
 import { Icons } from '@/components/icons';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
+import { supabaseClient } from '@/lib/supabase/client';
+import { signInWithEmail } from '@/lib/supabase/auth/email';
 import { useSignInForm } from '@/components/auth/SignInForm/hooks/useSignInForm';
+
 interface SignInFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 /**
@@ -32,28 +31,27 @@ export const SignInForm = (props: SignInFormProps) => {
     validationMessage,
   } = useSignInForm();
 
+  const router = useRouter();
+
   /**
    * Sign in with email handler.
    */
-  const onSubmit = (formEvent: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (formEvent: React.FormEvent<HTMLFormElement>) => {
     formEvent.preventDefault();
     changeLoadingState(true);
     const formData = new FormData() as FormData;
     formData.append('email', email);
-    signInAction(formData).finally(() => {
-      changeLoadingState(false);
-    });
+    await signInWithEmail(email);
+    router.push('/auth/verify-email');
   };
 
   /**
    * Sign in with Google Handler.
    */
-  const onGoogleSubmit = (formEvent: React.FormEvent<HTMLFormElement>) => {
+  const onGoogleSubmit = async (formEvent: React.FormEvent<HTMLFormElement>) => {
     formEvent.preventDefault();
     changeGoogleLoadingState(true);
-    signInWithGoogleAction().finally(() => {
-      changeGoogleLoadingState(false);
-    });
+    await supabaseClient.auth.signInWithOAuth({ provider: 'google' });
   };
 
   /**
@@ -62,9 +60,7 @@ export const SignInForm = (props: SignInFormProps) => {
   const onLinkedInSubmit = (formEvent: React.FormEvent<HTMLFormElement>) => {
     formEvent.preventDefault();
     changeLinkedInLoadingState(true);
-    signInWithLinkedInAction().finally(() => {
-      changeLinkedInLoadingState(false);
-    });
+    // TODO: Implement LinkedIn Sign In
   };
 
   return (

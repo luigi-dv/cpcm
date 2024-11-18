@@ -2,9 +2,8 @@
 
 import React from 'react';
 
-import { signOut } from '@/auth';
-
 import { Button } from '@/components/ui/button';
+import { signOut } from '@/lib/supabase/auth/common';
 import { SignOutButtonProps } from '@/types/components/auth';
 
 /**

@@ -1,21 +1,32 @@
 import * as React from 'react';
-import { ReactNode } from 'react';
 
-import { getDictionary } from '@/lib/dictionaries';
+import { redirect } from 'next/navigation';
+
+import { createClient } from '@/lib/supabase/server';
+import { getDictionary } from '@/lib/locale/dictionaries';
 import { NavigationBar } from '@/components/common/NavigationBar';
 import { NavigationSheet } from '@/components/common/NavigationSheet';
 import { NavigationBreadcrumb } from '@/components/common/NavigationBreadcrumb';
 import { NavigationUserDropdown } from '@/components/common/NavigationUserDropdown';
 import { NavigationCommandDialog } from '@/components/common/NavigationCommandDialog';
-
 const AuthenticatedLayout = async ({
   children,
-  params: { lang },
-}: {
-  children: ReactNode;
-  params: { lang: string };
-}) => {
+  params,
+}: Readonly<{
+  children: React.ReactNode;
+  params: Promise<{ lang: string }>;
+}>) => {
+  const { lang } = await params;
+
   const dict = await getDictionary(lang);
+
+  const supabase = await createClient();
+
+  const { data, error } = await supabase.auth.getUser();
+  if (error || !data?.user) {
+    redirect('/auth/login');
+  }
+
   return (
     <div className='flex min-h-screen w-full flex-col bg-muted/40'>
       <aside className='fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex'>

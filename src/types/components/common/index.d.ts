@@ -54,5 +54,4 @@ export interface TablePaginationProps {
   rowsPerPage: number;
   totalRows: number;
   currentPage: number;
-  onPageChange: (page: number) => void;
 }

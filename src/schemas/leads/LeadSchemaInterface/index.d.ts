@@ -1,0 +1,22 @@
+export interface LeadSchemaInterface {
+  Route: string | null;
+  Province: string | null;
+  Category: string | null;
+  CenterName: string | null;
+  ContactPerson: string | null;
+  Email: string | null;
+  LeadClientStatus: string | null;
+  Operation: string | null;
+  Position: string | null;
+  Representative: string | null;
+  Department: string | null;
+  Notes: string | null;
+  SpecificInvestigations: string | null;
+  Importance: string | null;
+  Phone: string | null;
+  InterestLevel: number | null;
+  DemoStatus: string | null;
+  Budget: number | null;
+  ProgrammingStatus: string | null;
+  LastContact: string | null;
+}
