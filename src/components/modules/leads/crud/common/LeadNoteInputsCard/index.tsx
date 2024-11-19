@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Loading } from '@/components/ui/loading';
 import { Textarea } from '@/components/ui/textarea';
 import { LeadNotesFormValues } from '@/types/forms/leads';
+import { LeadNotesForm } from '@/components/forms/lead/LeadNoteForm';
 import {
   Card,
   CardContent,
@@ -35,9 +36,7 @@ export const LeadNoteInputsCard = ({
         <CardDescription>Manage all related with your lead notes here.</CardDescription>
       </CardHeader>
       <CardContent className='space-y-2'>
-        <div className='space-y-1'>
-          <Textarea id='name' {...register('notes')} />
-        </div>
+        <LeadNotesForm form={notesForm} />
       </CardContent>
       {withSaveButton && (
         <CardFooter className='w-full flex justify-end'>

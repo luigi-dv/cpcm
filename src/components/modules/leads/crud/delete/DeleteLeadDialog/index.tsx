@@ -26,7 +26,7 @@ export const DeleteLeadDialog = ({ id }: { id: string }) => {
   const onDelete = async () => {
     try {
       const deletedLead = await deleteLead(id);
-      toast.success('Lead Delete Successfully', {
+      toast.success('Lead deleted successfully', {
         description: dayjs(deletedLead?.UpdatedAt).toString(),
       });
       setOpen(false);

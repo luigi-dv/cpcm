@@ -4,9 +4,9 @@ import React from 'react';
 
 import Link from 'next/link';
 import { classNames } from '@/utils/cn';
-import { usePathname } from 'next/navigation';
 import { PRIVATE_NAVIGATION } from '@/constants';
 import { removeLanguageSlug } from '@/utils/routing';
+import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
 
 import { NavigationTooltipsProps } from '@/types/components/common';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
@@ -17,8 +17,11 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
  */
 export const NavigationTooltips = (props: NavigationTooltipsProps) => {
   const { dict } = props;
+  const segment = useSelectedLayoutSegment();
   const pathname = usePathname();
   const currentPathname = removeLanguageSlug(pathname);
+
+  console.log(segment);
 
   return (
     <TooltipProvider>
@@ -28,7 +31,7 @@ export const NavigationTooltips = (props: NavigationTooltipsProps) => {
             <Link
               href={item.route}
               className={classNames(
-                '/' + currentPathname == item.route ? 'bg-accent text-accent-foreground' : '',
+                '/' + segment == item.route ? 'bg-accent text-accent-foreground' : '',
                 'flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8'
               )}
             >

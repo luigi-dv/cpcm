@@ -1,4 +1,4 @@
 export const removeLanguageSlug = (path: string) => {
-  const pathParts = path.split('/');
-  return pathParts[pathParts.length - 1];
+  let updatedRoute = path.split('/').slice(2).join('/');
+  return '/' + updatedRoute;
 };

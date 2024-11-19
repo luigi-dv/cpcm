@@ -6,8 +6,8 @@ import { SETTINGS_ROUTE } from '@/routes';
 import { redirect } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
-import { createClient } from '@/lib/supabase/server';
 import { signOut } from '@/lib/supabase/auth/common';
+import { createClient } from '@/lib/supabase/server';
 import { NavigationUserDropdownProps } from '@/types/components/common';
 import {
   DropdownMenu,
@@ -25,6 +25,7 @@ export const NavigationUserDropdown = async (props: NavigationUserDropdownProps)
   const supabase = await createClient();
 
   const { data, error } = await supabase.auth.getUser();
+
   if (error || !data?.user) {
     redirect('/auth/login');
   }

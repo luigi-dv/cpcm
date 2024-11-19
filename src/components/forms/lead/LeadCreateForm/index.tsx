@@ -14,33 +14,16 @@ import {
 } from '@/types/forms/leads';
 
 export const LeadCreateForm = () => {
-  const { form, onSubmit } = useCreateLeadContext();
+  const { form } = useCreateLeadContext();
   return (
-    <div className='col-span-2 md:col-span-1'>
-      <Tabs defaultValue='contact-information'>
-        <div className='flex items-center px-4'>
-          <TabsList>
-            <TabsTrigger value='contact-information'>Contact Information</TabsTrigger>
-            <TabsTrigger value='route'>Route</TabsTrigger>
-            <TabsTrigger value='notes'>Notes</TabsTrigger>
-          </TabsList>
-        </div>
-        <div className='p-4 md:p-2'>
-          <TabsContent value='contact-information'>
-            <LeadInformationInputsCard
-              informationForm={form as unknown as UseFormReturn<LeadInformationFormValues>}
-            />
-          </TabsContent>
-          <TabsContent value='route'>
-            <LeadRouteInputsCard
-              routeForm={form as unknown as UseFormReturn<LeadRouteFormValues>}
-            />
-          </TabsContent>
-          <TabsContent value='notes'>
-            <LeadNoteInputsCard notesForm={form as unknown as UseFormReturn<LeadNotesFormValues>} />
-          </TabsContent>
-        </div>
-      </Tabs>
-    </div>
+    <>
+      <LeadInformationInputsCard
+        informationForm={form as unknown as UseFormReturn<LeadInformationFormValues>}
+      />
+
+      <LeadRouteInputsCard routeForm={form as unknown as UseFormReturn<LeadRouteFormValues>} />
+
+      <LeadNoteInputsCard notesForm={form as unknown as UseFormReturn<LeadNotesFormValues>} />
+    </>
   );
 };

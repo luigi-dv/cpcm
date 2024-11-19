@@ -79,7 +79,7 @@
       "noContactsFoundDescription": "Seems like you don't have any Leads  yet. Add a new contact to get started.",
       "noContactsFoundFor": "No Leads Found for",
       "CRUD": {
-        "create": "Add Lead",
+        "create": "Create Lead",
         "read": "View Lead",
         "update": "Edit Lead",
         "delete": "Delete Lead",
