@@ -1,7 +1,5 @@
-import { cookies } from 'next/headers';
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 
 import { redirectLocale } from '@/lib/locale/redirection';
 
@@ -52,7 +50,6 @@ export async function updateSession(request: NextRequest) {
 
   const redirectResponse = redirectLocale(request, request.nextUrl.pathname, !!user);
   if (redirectResponse) {
-    // Copy cookies to ensure session continuity
     supabaseResponse.cookies.getAll().map((cookie) => {
       redirectResponse.cookies.set(cookie.name, cookie.value);
     });

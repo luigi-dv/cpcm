@@ -1,6 +1,4 @@
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
-import { useSearchParams } from 'next/navigation';
 
 import { SignInForm } from '@/components/auth/SignInForm';
 

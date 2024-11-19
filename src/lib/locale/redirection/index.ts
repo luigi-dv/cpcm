@@ -1,6 +1,11 @@
 import { LOCALES } from '@/constants/locales';
 import { NextRequest, NextResponse } from 'next/server';
-import { AUTH_SIGN_IN_ROUTE, AUTH_VERIFY_REQUEST_ROUTE, DASHBOARD_ROUTE } from '@/routes';
+import {
+  AUTH_CALLBACK_ROUTE,
+  AUTH_SIGN_IN_ROUTE,
+  AUTH_VERIFY_REQUEST_ROUTE,
+  DASHBOARD_ROUTE,
+} from '@/routes';
 
 import { getLocale } from '@/lib/locale/dictionaries';
 
@@ -22,13 +27,15 @@ export const redirectLocale = (req: NextRequest, pathname: string, isAuthenticat
   if (!isAuthenticated) {
     switch (pathname) {
       case AUTH_SIGN_IN_ROUTE:
+      case AUTH_CALLBACK_ROUTE:
       case AUTH_VERIFY_REQUEST_ROUTE:
         return; // Avoid redirect if the user is on the sign-in or verify request page
     }
   } else {
     switch (pathname) {
-      case AUTH_SIGN_IN_ROUTE:
       case '/':
+      case AUTH_SIGN_IN_ROUTE:
+      case AUTH_CALLBACK_ROUTE:
       case AUTH_VERIFY_REQUEST_ROUTE:
         // Redirect to the dashboard only if the user is authenticated
         return NextResponse.redirect(new URL(`/${locale}/${DASHBOARD_ROUTE}`, req.url));
