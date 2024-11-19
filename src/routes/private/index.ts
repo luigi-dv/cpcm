@@ -1,4 +1,4 @@
-export const LEADS_ROUTE = '/leads';
+export * from './leads';
 export const CLIENTS_ROUTE = '/clients';
 export const DASHBOARD_ROUTE = '/dashboard';
 export const PRODUCTS_ROUTE = '/products';

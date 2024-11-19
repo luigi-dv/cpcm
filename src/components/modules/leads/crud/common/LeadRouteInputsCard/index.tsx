@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Loading } from '@/components/ui/loading';
 import { LeadRouteFormValues } from '@/types/forms/leads';
+import { LeadRouteForm } from '@/components/forms/lead/LeadRouteForm';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 
 export const LeadRouteInputsCard = ({
@@ -26,22 +27,7 @@ export const LeadRouteInputsCard = ({
         <CardTitle>Route</CardTitle>
       </CardHeader>
       <CardContent className='space-y-2'>
-        <div className='space-y-1'>
-          <Label htmlFor='route'>Route</Label>
-          <Input id='route' {...register('route')} />
-        </div>
-        <div className='space-y-1'>
-          <Label htmlFor='province'>Province</Label>
-          <Input id='province' {...register('province')} />
-        </div>
-        <div className='space-y-1'>
-          <Label htmlFor='category'>Category</Label>
-          <Input id='category' {...register('category')} />
-        </div>
-        <div className='space-y-1'>
-          <Label htmlFor='center-name'>Center Name</Label>
-          <Input id='center-name' {...register('centerName')} />
-        </div>
+        <LeadRouteForm form={routeForm} />
       </CardContent>
       {withSaveButton && (
         <CardFooter className='w-full flex justify-end'>

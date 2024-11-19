@@ -2,11 +2,27 @@
 
 import React, { useEffect, useState } from 'react';
 
-import { Calculator, Calendar, CreditCard, Settings, Smile, User } from 'lucide-react';
+import { useCommandState } from 'cmdk';
+import { useRouter } from 'next/navigation';
+import { CREATE_LEAD_ROUTE, LEADS_ROUTE } from '@/routes';
+import {
+  Calculator,
+  Calendar,
+  CreditCard,
+  PlusIcon,
+  Settings,
+  Smile,
+  User,
+  Users2,
+} from 'lucide-react';
 
+import { cn } from '@/lib/utils';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogHeader } from '@/components/ui/dialog';
 import { NavigationCommandDialogProps } from '@/types/components/common';
 import {
+  Command,
   CommandDialog,
   CommandEmpty,
   CommandGroup,
@@ -23,8 +39,19 @@ import {
  */
 export const NavigationCommandDialog = (props: NavigationCommandDialogProps) => {
   const { dict } = props;
-
   const [open, setOpen] = useState(false);
+  const [inputValue, setInputValue] = React.useState('');
+  const [pages, setPages] = React.useState<string[]>(['home']);
+  const activePage = pages[pages.length - 1];
+  const isHome = activePage === 'home';
+
+  const popPage = React.useCallback(() => {
+    setPages((pages) => {
+      const x = [...pages];
+      x.splice(-1, 1);
+      return x;
+    });
+  }, []);
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -58,38 +85,106 @@ export const NavigationCommandDialog = (props: NavigationCommandDialogProps) => 
       </div>
 
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder={dict.search.searchPlaceholder} />
+        <div className='p-4 flex gap-x-2'>
+          {pages.map((p, index) => (
+            <Badge
+              className={cn(activePage == p && 'bg-accent', 'cursor-pointer capitalize')}
+              key={p}
+              variant='outline'
+              onClick={() => {
+                const updatedPages = pages.slice(0, index + 1);
+                setPages(updatedPages);
+              }}
+            >
+              {p}
+            </Badge>
+          ))}
+        </div>
+        <CommandInput
+          autoFocus
+          onValueChange={(value) => {
+            setInputValue(value);
+          }}
+          placeholder={dict.search.searchPlaceholder}
+        />
         <CommandList>
-          <CommandEmpty>{dict.search.noResultsFound}</CommandEmpty>
-          <CommandGroup heading={dict.search.searchSuggestions.searchSuggestions}>
-            <CommandItem>
-              <Calendar className='mr-2 h-4 w-4' />
-              <span>Calendar</span>
-            </CommandItem>
-            <CommandItem>
-              <Smile className='mr-2 h-4 w-4' />
-              <span>Search Emoji</span>
-            </CommandItem>
-            <CommandItem>
-              <Calculator className='mr-2 h-4 w-4' />
-              <span>Calculator</span>
-            </CommandItem>
-          </CommandGroup>
-          <CommandSeparator />
-          <CommandGroup heading={dict.settings.settings}>
-            <CommandItem>
-              <User className='mr-2 h-4 w-4' />
-              <span>{dict.settings.account}</span>
-              <CommandShortcut>⌘A</CommandShortcut>
-            </CommandItem>
-            <CommandItem>
-              <CreditCard className='mr-2 h-4 w-4' />
-              <span>{dict.settings.notifications}</span>
-              <CommandShortcut>⌘B</CommandShortcut>
-            </CommandItem>
-          </CommandGroup>
+          <CommandEmpty>No results found.</CommandEmpty>
+          {activePage === 'home' && (
+            <Home searchLeads={() => setPages([...pages, 'leads'])} close={() => setOpen(false)} />
+          )}
+          {activePage === 'leads' && <Leads />}
         </CommandList>
       </CommandDialog>
     </>
   );
 };
+
+function Home({ searchLeads, close }: { searchLeads: Function; close: Function }) {
+  const router = useRouter();
+
+  const onCreateLeadSelect = () => {
+    close();
+    router.push(CREATE_LEAD_ROUTE);
+  };
+  return (
+    <>
+      <CommandGroup heading='Leads'>
+        <CommandItem
+          onClick={() => {
+            searchLeads();
+          }}
+          onSelect={() => {
+            searchLeads();
+          }}
+        >
+          <div className='flex gap-4'>
+            <Users2 />
+            Search Lead
+          </div>
+        </CommandItem>
+        <CommandItem onSelect={onCreateLeadSelect}>
+          <div className='flex gap-4'>
+            <PlusIcon />
+            Create New Lead
+          </div>
+        </CommandItem>
+      </CommandGroup>
+    </>
+  );
+}
+
+function Leads() {
+  return (
+    <>
+      <Item>Project 1</Item>
+      <Item>Project 2</Item>
+      <Item>Project 3</Item>
+      <Item>Project 4</Item>
+      <Item>Project 5</Item>
+      <Item>Project 6</Item>
+    </>
+  );
+}
+
+function Item({
+  children,
+  shortcut,
+  onSelect = () => {},
+}: {
+  children: React.ReactNode;
+  shortcut?: string;
+  onSelect?: (value: string) => void;
+}) {
+  return (
+    <CommandItem onSelect={onSelect}>
+      {children}
+      {shortcut && (
+        <div cmdk-vercel-shortcuts=''>
+          {shortcut.split(' ').map((key) => {
+            return <kbd key={key}>{key}</kbd>;
+          })}
+        </div>
+      )}
+    </CommandItem>
+  );
+}

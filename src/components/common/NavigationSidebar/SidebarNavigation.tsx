@@ -4,6 +4,7 @@ import React from 'react';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { removeLanguageSlug } from '@/utils/routing';
 
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
@@ -15,6 +16,7 @@ import { SidebarNavProps } from '@/types/components/common';
  */
 export const SideBarNavigation = ({ className, items, ...props }: SidebarNavProps) => {
   const pathname = usePathname();
+  const currentPathname = removeLanguageSlug(pathname);
 
   return (
     <nav
@@ -27,7 +29,7 @@ export const SideBarNavigation = ({ className, items, ...props }: SidebarNavProp
           href={item.href}
           className={cn(
             buttonVariants({ variant: 'ghost' }),
-            pathname === item.href
+            currentPathname == item.href
               ? 'bg-muted hover:bg-muted'
               : 'hover:bg-transparent hover:underline',
             'justify-start'

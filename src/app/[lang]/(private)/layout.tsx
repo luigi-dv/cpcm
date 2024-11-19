@@ -9,6 +9,7 @@ import { NavigationSheet } from '@/components/common/NavigationSheet';
 import { NavigationBreadcrumb } from '@/components/common/NavigationBreadcrumb';
 import { NavigationUserDropdown } from '@/components/common/NavigationUserDropdown';
 import { NavigationCommandDialog } from '@/components/common/NavigationCommandDialog';
+
 const AuthenticatedLayout = async ({
   children,
   params,
